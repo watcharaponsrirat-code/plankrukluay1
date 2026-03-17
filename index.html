@@ -20,83 +20,91 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <!-- SweetAlert2 (Popup สวยๆ) -->
+    <!-- SweetAlert2 (Dark Theme) -->
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-        body { font-family: 'Sarabun', sans-serif; background-color: #f3f4f6; }
-        h1, h2, h3, h4, h5, h6, .font-prompt { font-family: 'Prompt', sans-serif; }
+        body { font-family: 'Sarabun', sans-serif; background-color: #0a0a0a; color: #d4d4d8; }
+        h1, h2, h3, h4, h5, h6, .font-prompt { font-family: 'Prompt', sans-serif; color: #f4f4f5; }
         .math-display { overflow-x: auto; overflow-y: hidden; }
-        /* ซ่อน Scrollbar สำหรับเนื้อหาที่เลื่อนได้ */
+        
+        /* Dark Scrollbar */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #18181b; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+
+        /* Fix MathJax text color in dark mode */
+        mjx-container { color: #d4d4d8 !important; }
+        
+        /* Custom Input Placeholders */
+        ::placeholder { color: #52525b !important; }
     </style>
 </head>
-<body class="text-gray-800 pb-20">
+<body class="pb-20">
 
     <!-- Navbar -->
-    <nav class="bg-indigo-800 text-white p-4 shadow-md sticky top-0 z-50">
+    <nav class="bg-black border-b border-red-700 p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <i class="fa-solid fa-atom text-2xl text-yellow-400"></i>
+                <i class="fa-solid fa-fire text-2xl text-red-600"></i>
                 <div>
-                    <span class="font-bold text-lg font-prompt block leading-tight">Digital Lesson Plan</span>
-                    <span class="text-xs text-indigo-200">Active Learning & Technology Integration</span>
+                    <span class="font-bold text-lg font-prompt block leading-tight text-white">Digital Lesson Plan</span>
+                    <span class="text-xs text-gray-400">Active Learning & Technology Integration</span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-auto max-w-5xl p-4 md:p-8 my-6 bg-white shadow-xl rounded-xl border border-gray-200">
+    <div class="container mx-auto max-w-5xl p-4 md:p-8 my-6 bg-[#141414] shadow-2xl shadow-black rounded-xl border border-gray-800">
         
         <!-- Header: School & Teacher Info -->
-        <header class="border-b-4 border-indigo-600 pb-6 mb-8">
+        <header class="border-b-4 border-red-700 pb-6 mb-8">
             <div class="flex flex-col md:flex-row justify-between items-start gap-6">
                 <div class="flex-1">
-                    <h5 class="text-indigo-600 font-bold uppercase tracking-wide text-sm mb-1">กลุ่มสาระการเรียนรู้วิทยาศาสตร์และเทคโนโลยี</h5>
-                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 font-prompt">โรงเรียนห้องสอนศึกษา</h1>
+                    <h5 class="text-red-600 font-bold uppercase tracking-wide text-sm mb-1">กลุ่มสาระการเรียนรู้วิทยาศาสตร์และเทคโนโลยี</h5>
+                    <h1 class="text-3xl md:text-4xl font-bold text-white font-prompt">โรงเรียนห้องสอนศึกษา</h1>
                     <div class="mt-4 space-y-1">
-                        <h2 class="text-2xl font-bold text-gray-800">เรื่อง งานและพลังงาน</h2>
+                        <h2 class="text-2xl font-bold text-gray-200">เรื่อง งานและพลังงาน</h2>
                         <h3 class="text-lg text-gray-500 font-light">(Work and Energy)</h3>
                     </div>
                 </div>
                 
-                <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 min-w-[280px] shadow-sm">
-                    <div class="flex items-center gap-3 mb-2 border-b border-indigo-200 pb-2">
-                        <div class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <div class="bg-[#1e1e1e] p-5 rounded-xl border border-gray-800 min-w-[280px] shadow-sm">
+                    <div class="flex items-center gap-3 mb-2 border-b border-gray-700 pb-2">
+                        <div class="bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center"><i class="fa-solid fa-chalkboard-user"></i></div>
                         <div>
                             <p class="text-xs text-gray-500">ครูผู้สอน</p>
-                            <p class="font-bold text-indigo-900">นายวัชรพล</p>
+                            <p class="font-bold text-red-500">นายวัชรพล</p>
                         </div>
                     </div>
-                    <div class="space-y-2 text-sm text-gray-700">
-                        <p class="flex justify-between"><span><i class="fa-solid fa-book mr-2 text-indigo-400"></i>วิชา:</span> <span class="font-bold">วิทยาศาสตร์</span></p>
-                        <p class="flex justify-between"><span><i class="fa-solid fa-layer-group mr-2 text-indigo-400"></i>ชั้น:</span> <span class="font-bold">มัธยมศึกษาปีที่ 2</span></p>
-                        <p class="flex justify-between"><span><i class="fa-solid fa-calendar-alt mr-2 text-indigo-400"></i>หน่วยการเรียนรู้:</span> <span class="font-bold">พลังงานกล</span></p>
-                        <p class="flex justify-between"><span><i class="fa-regular fa-clock mr-2 text-indigo-400"></i>เวลา:</span> <span class="font-bold">3 คาบ (150 นาที)</span></p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p class="flex justify-between"><span><i class="fa-solid fa-book mr-2 text-red-600"></i>วิชา:</span> <span class="font-bold text-gray-300">วิทยาศาสตร์</span></p>
+                        <p class="flex justify-between"><span><i class="fa-solid fa-layer-group mr-2 text-red-600"></i>ชั้น:</span> <span class="font-bold text-gray-300">มัธยมศึกษาปีที่ 2</span></p>
+                        <p class="flex justify-between"><span><i class="fa-solid fa-calendar-alt mr-2 text-red-600"></i>หน่วยการเรียนรู้:</span> <span class="font-bold text-gray-300">พลังงานกล</span></p>
+                        <p class="flex justify-between"><span><i class="fa-regular fa-clock mr-2 text-red-600"></i>เวลา:</span> <span class="font-bold text-gray-300">3 คาบ (150 นาที)</span></p>
                     </div>
                 </div>
             </div>
 
             <!-- Innovation Link & Download Button -->
-            <div class="mt-6 p-4 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-lg text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="mt-6 p-4 bg-gradient-to-r from-red-900 to-black border border-red-800 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
-                    <div class="bg-white/20 p-3 rounded-full backdrop-blur-sm">
-                        <i class="fa-solid fa-bolt text-2xl"></i>
+                    <div class="bg-black/50 p-3 rounded-full border border-red-900">
+                        <i class="fa-solid fa-bolt text-2xl text-red-500"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold text-lg font-prompt">สื่อการสอนนวัตกรรม (Web Application)</h3>
-                        <p class="text-blue-100 text-sm">WorkEnergy-Quest M.2 : Interactive Quiz & Virtual Lab</p>
+                        <h3 class="font-bold text-lg font-prompt text-white">สื่อการสอนนวัตกรรม (Web Application)</h3>
+                        <p class="text-gray-300 text-sm">WorkEnergy-Quest M.2 : Interactive Quiz & Virtual Lab</p>
                     </div>
                 </div>
                 
                 <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                    <a href="#" class="bg-white/20 border border-white/50 text-white px-5 py-2 rounded-full font-bold hover:bg-white/30 transition shadow-md flex items-center justify-center text-sm backdrop-blur-sm whitespace-nowrap">
+                    <a href="#" class="bg-black border border-red-700 text-red-500 px-5 py-2 rounded-full font-bold hover:bg-red-900/30 transition shadow-md flex items-center justify-center text-sm whitespace-nowrap">
                         <i class="fa-solid fa-file-pdf mr-2"></i> ดาวน์โหลดแผนฯ
                     </a>
-                    <a href="#" class="bg-white text-blue-700 px-6 py-2 rounded-full font-bold hover:bg-blue-50 transition shadow-md transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
+                    <a href="#" class="bg-red-700 text-white px-6 py-2 rounded-full font-bold hover:bg-red-600 transition shadow-md transform hover:scale-105 flex items-center justify-center whitespace-nowrap">
                         <i class="fa-solid fa-gamepad mr-2"></i> เปิดใช้งาน App
                     </a>
                 </div>
@@ -109,29 +117,29 @@
             <!-- Left Column: Info & Standards -->
             <div class="lg:col-span-1 space-y-6">
                 <!-- Learning Outcomes -->
-                <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500 shadow-sm">
-                    <h3 class="font-bold text-lg text-orange-800 mb-3 font-prompt">
+                <div class="bg-[#1e1e1e] p-5 rounded-lg border-l-4 border-red-600 shadow-sm">
+                    <h3 class="font-bold text-lg text-red-500 mb-3 font-prompt">
                         <i class="fa-solid fa-scroll mr-2"></i> มาตรฐานและตัวชี้วัด
                     </h3>
-                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
-                        <b>ว 2.3 ม.2/1</b> วิเคราะห์สถานการณ์และคำนวณเกี่ยวกับงานและกำลังที่เกิดจากแรงที่กระทำต่อวัตถุโดยใช้สมการ จากข้อมูลที่รวบรวมได้<br><br>
-                        <b>ผลการเรียนรู้ที่คาดหวัง:</b> นักเรียนสามารถวิเคราะห์สถานการณ์เพื่อระบุการเกิดงานทางฟิสิกส์ คำนวณหางานและกำลัง รวมถึงอธิบายความหมายของพลังงานจลน์และพลังงานศักย์โน้มถ่วง พร้อมนำไปใช้อธิบายปรากฏการณ์ในชีวิตประจำวันได้
+                    <p class="text-sm text-gray-400 leading-relaxed text-justify">
+                        <b class="text-gray-200">ว 2.3 ม.2/1</b> วิเคราะห์สถานการณ์และคำนวณเกี่ยวกับงานและกำลังที่เกิดจากแรงที่กระทำต่อวัตถุโดยใช้สมการ จากข้อมูลที่รวบรวมได้<br><br>
+                        <b class="text-gray-200">ผลการเรียนรู้ที่คาดหวัง:</b> นักเรียนสามารถวิเคราะห์สถานการณ์เพื่อระบุการเกิดงานทางฟิสิกส์ คำนวณหางานและกำลัง รวมถึงอธิบายความหมายของพลังงานจลน์และพลังงานศักย์โน้มถ่วง พร้อมนำไปใช้อธิบายปรากฏการณ์ในชีวิตประจำวันได้
                     </p>
                 </div>
 
                 <!-- Concept & Equations -->
-                <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
-                    <h3 class="font-bold text-lg text-gray-800 mb-3 font-prompt flex items-center">
-                        <i class="fa-solid fa-square-root-variable text-purple-600 mr-2"></i> สมการและแนวคิดหลัก
+                <div class="bg-[#1e1e1e] p-5 rounded-lg border border-gray-800 shadow-sm">
+                    <h3 class="font-bold text-lg text-white mb-3 font-prompt flex items-center">
+                        <i class="fa-solid fa-square-root-variable text-red-600 mr-2"></i> สมการและแนวคิดหลัก
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-gray-50 p-3 rounded text-center border border-gray-200">
-                            <span class="text-xs font-bold text-gray-600 block mb-1">งาน (Work) และ กำลัง (Power)</span>
+                        <div class="bg-black p-3 rounded text-center border border-gray-800">
+                            <span class="text-xs font-bold text-gray-500 block mb-1">งาน (Work) และ กำลัง (Power)</span>
                             <div class="math-display text-sm">$$W = F \times s$$</div>
                             <div class="math-display text-sm mt-1">$$P = \frac{W}{t}$$</div>
                         </div>
-                        <div class="bg-gray-50 p-3 rounded text-center border border-gray-200">
-                            <span class="text-xs font-bold text-gray-600 block mb-1">พลังงานกล (Mechanical Energy)</span>
+                        <div class="bg-black p-3 rounded text-center border border-gray-800">
+                            <span class="text-xs font-bold text-gray-500 block mb-1">พลังงานกล (Mechanical Energy)</span>
                             <div class="math-display text-xs">
                                 $$E_k = \frac{1}{2}mv^2 \quad \text{(พลังงานจลน์)}$$
                             </div>
@@ -143,21 +151,21 @@
                 </div>
 
                 <!-- Objectives -->
-                <div class="bg-blue-50 p-5 rounded-lg border border-blue-100">
-                    <h3 class="font-bold text-lg text-blue-900 mb-3 font-prompt">
+                <div class="bg-[#1e1e1e] p-5 rounded-lg border border-gray-800">
+                    <h3 class="font-bold text-lg text-red-500 mb-3 font-prompt">
                         <i class="fa-solid fa-bullseye mr-2"></i> จุดประสงค์การเรียนรู้ (KPA)
                     </h3>
-                    <ul class="space-y-3 text-sm">
+                    <ul class="space-y-3 text-sm text-gray-400">
                         <li class="flex gap-2">
-                            <span class="badge bg-blue-200 text-blue-800 px-2 rounded font-bold">K</span>
+                            <span class="badge bg-gray-800 text-gray-300 border border-gray-700 px-2 rounded font-bold">K</span>
                             <span>นักเรียนอธิบายความหมายของงาน กำลัง พลังงานจลน์ และพลังงานศักย์โน้มถ่วง และเลือกใช้สมการได้อย่างถูกต้อง</span>
                         </li>
                         <li class="flex gap-2">
-                            <span class="badge bg-green-200 text-green-800 px-2 rounded font-bold">P</span>
+                            <span class="badge bg-gray-800 text-gray-300 border border-gray-700 px-2 rounded font-bold">P</span>
                             <span>นักเรียนสามารถคำนวณหางาน พลังงาน และวิเคราะห์สถานการณ์ปัญหาได้อย่างแม่นยำ</span>
                         </li>
                         <li class="flex gap-2">
-                            <span class="badge bg-red-200 text-red-800 px-2 rounded font-bold">A</span>
+                            <span class="badge bg-gray-800 text-gray-300 border border-gray-700 px-2 rounded font-bold">A</span>
                             <span>นักเรียนมีความกระตือรือร้น ทำงานร่วมกับกลุ่ม เคารพกติกา และมีความรับผิดชอบ</span>
                         </li>
                     </ul>
@@ -166,26 +174,26 @@
 
             <!-- Right Column: 5E Process -->
             <div class="lg:col-span-2">
-                <div class="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden">
-                    <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center">
-                        <h3 class="font-bold text-xl text-indigo-700 font-prompt">
-                            <i class="fa-solid fa-chalkboard-teacher mr-2"></i> กิจกรรมการเรียนรู้ (5E + STAD)
+                <div class="bg-[#1e1e1e] rounded-xl border border-gray-800 shadow-lg overflow-hidden">
+                    <div class="bg-black p-4 border-b border-gray-800 flex justify-between items-center">
+                        <h3 class="font-bold text-xl text-red-600 font-prompt">
+                            <i class="fa-solid fa-skull mr-2"></i> กิจกรรมการเรียนรู้ (5E + STAD)
                         </h3>
                     </div>
 
                     <div class="p-6 space-y-6">
                         
                         <!-- Step 1 -->
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[17px] top-0 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
-                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นสร้างความสนใจ (Engagement) <span class="text-xs bg-gray-200 px-2 py-1 rounded ml-2 text-gray-600">15 นาที</span></h4>
-                            <div class="mt-2 text-gray-600 text-sm space-y-2">
-                                <p>• <b>Stimulus:</b> ครูเปิดสถานการณ์จำลอง (PhET) ให้นักเรียนดูภาพคนออกแรงผลักกล่องไม้ให้เคลื่อนที่ กับคนแบกกล่องไม้เดินไปข้างหน้า แล้วตั้งคำถามกระตุ้นความคิด</p>
+                        <div class="relative pl-8 border-l-2 border-red-900">
+                            <div class="absolute -left-[17px] top-0 bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
+                            <h4 class="font-bold text-gray-200 font-prompt text-lg">ขั้นสร้างความสนใจ (Engagement) <span class="text-xs bg-gray-800 px-2 py-1 rounded ml-2 text-gray-400">15 นาที</span></h4>
+                            <div class="mt-2 text-gray-400 text-sm space-y-2">
+                                <p>• <b class="text-white">Stimulus:</b> ครูเปิดสถานการณ์จำลอง (PhET) ให้นักเรียนดูภาพคนออกแรงผลักกล่องไม้ให้เคลื่อนที่ กับคนแบกกล่องไม้เดินไปข้างหน้า แล้วตั้งคำถามกระตุ้นความคิด</p>
                                 
                                 <div class="mt-3 mb-3">
-                                    <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-3">
-                                        <p class="text-sm font-bold text-indigo-800 mb-2"><i class="fa-solid fa-vr-cardboard mr-2"></i>สื่อประกอบ: PhET Simulation (Forces and Motion)</p>
-                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden shadow-sm bg-black">
+                                    <div class="bg-black border border-gray-800 rounded-lg p-3 shadow-inner">
+                                        <p class="text-sm font-bold text-gray-300 mb-2"><i class="fa-solid fa-vr-cardboard mr-2 text-red-500"></i>สื่อประกอบ: PhET Simulation</p>
+                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-gray-800 bg-black">
                                             <iframe 
                                                 src="https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_th.html" 
                                                 class="absolute top-0 left-0 w-full h-full border-0" 
@@ -195,50 +203,50 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>• <b>Discussion:</b> ครูตั้งคำถาม "ในทางฟิสิกส์ การกระทำใดถือว่าเกิด 'งาน' และอะไรคือเงื่อนไขสำคัญของการเกิดงาน?"</p>
+                                <p>• <b class="text-white">Discussion:</b> ครูตั้งคำถาม "ในทางฟิสิกส์ การกระทำใดถือว่าเกิด 'งาน' และอะไรคือเงื่อนไขสำคัญของการเกิดงาน?"</p>
                             </div>
                         </div>
 
                         <!-- Step 2 -->
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[17px] top-0 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
-                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นสำรวจและค้นหา (Exploration) <span class="text-xs bg-gray-200 px-2 py-1 rounded ml-2 text-gray-600">40 นาที</span></h4>
-                            <div class="mt-2 text-gray-600 text-sm space-y-2">
-                                <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Teams] กิจกรรม: Work & Power Challenger</span>
-                                <p>• <b>Group Formation:</b> แบ่งนักเรียนเป็นกลุ่ม กลุ่มละ 4-5 คน คละความสามารถ</p>
-                                <p>• <b>Mission:</b> นักเรียนเข้าสู่โหมด "Training Group" ใน Web App ระบบจะสุ่มโจทย์สถานการณ์ 3 ข้อให้แต่ละกลุ่ม ช่วยกันวิเคราะห์และคำนวณ</p>
+                        <div class="relative pl-8 border-l-2 border-red-900">
+                            <div class="absolute -left-[17px] top-0 bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
+                            <h4 class="font-bold text-gray-200 font-prompt text-lg">ขั้นสำรวจและค้นหา (Exploration) <span class="text-xs bg-gray-800 px-2 py-1 rounded ml-2 text-gray-400">40 นาที</span></h4>
+                            <div class="mt-2 text-gray-400 text-sm space-y-2">
+                                <span class="inline-block bg-red-900/30 text-red-500 border border-red-900/50 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Teams] กิจกรรม: Work & Power Challenger</span>
+                                <p>• <b class="text-white">Group Formation:</b> แบ่งนักเรียนเป็นกลุ่ม กลุ่มละ 4-5 คน คละความสามารถ</p>
+                                <p>• <b class="text-white">Mission:</b> นักเรียนเข้าสู่โหมด "Training Group" ใน Web App ระบบจะสุ่มโจทย์สถานการณ์ 3 ข้อให้แต่ละกลุ่ม ช่วยกันวิเคราะห์และคำนวณ</p>
                             </div>
                         </div>
 
                         <!-- Step 3 -->
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[17px] top-0 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
-                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นอธิบายและลงข้อสรุป (Explanation) <span class="text-xs bg-gray-200 px-2 py-1 rounded ml-2 text-gray-600">30 นาที</span></h4>
-                            <div class="mt-2 text-gray-600 text-sm space-y-2">
-                                <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Presentation]</span>
-                                <p>• <b>Debrief:</b> ครูสุ่มตัวแทนกลุ่มนำเสนอวิธีคิดของกลุ่มตัวเอง โดยเฉพาะข้อที่มักเกิดความสับสน</p>
-                                <p>• <b>Concept Mapping:</b> ครูสรุปสมการ $W = Fs$ และเชื่อมโยงคอนเซปต์พลังงานจลน์ และพลังงานศักย์</p>
+                        <div class="relative pl-8 border-l-2 border-red-900">
+                            <div class="absolute -left-[17px] top-0 bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
+                            <h4 class="font-bold text-gray-200 font-prompt text-lg">ขั้นอธิบายและลงข้อสรุป (Explanation) <span class="text-xs bg-gray-800 px-2 py-1 rounded ml-2 text-gray-400">30 นาที</span></h4>
+                            <div class="mt-2 text-gray-400 text-sm space-y-2">
+                                <span class="inline-block bg-red-900/30 text-red-500 border border-red-900/50 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Presentation]</span>
+                                <p>• <b class="text-white">Debrief:</b> ครูสุ่มตัวแทนกลุ่มนำเสนอวิธีคิดของกลุ่มตัวเอง โดยเฉพาะข้อที่มักเกิดความสับสน</p>
+                                <p>• <b class="text-white">Concept Mapping:</b> ครูสรุปสมการ $W = Fs$ และเชื่อมโยงคอนเซปต์พลังงานจลน์ และพลังงานศักย์</p>
                             </div>
                         </div>
 
                         <!-- Step 4 -->
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[17px] top-0 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
-                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นขยายความรู้ (Elaboration) <span class="text-xs bg-gray-200 px-2 py-1 rounded ml-2 text-gray-600">45 นาที</span></h4>
-                            <div class="mt-2 text-gray-600 text-sm space-y-2">
-                                <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Quiz] กิจกรรม: The Energy Boss Fight</span>
-                                <p>• <b>Individual Test:</b> นักเรียนทำแบบทดสอบเก็บคะแนนรายบุคคลผ่าน Web App (ห้ามปรึกษากันในรอบนี้)</p>
+                        <div class="relative pl-8 border-l-2 border-red-900">
+                            <div class="absolute -left-[17px] top-0 bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
+                            <h4 class="font-bold text-gray-200 font-prompt text-lg">ขั้นขยายความรู้ (Elaboration) <span class="text-xs bg-gray-800 px-2 py-1 rounded ml-2 text-gray-400">45 นาที</span></h4>
+                            <div class="mt-2 text-gray-400 text-sm space-y-2">
+                                <span class="inline-block bg-red-900/30 text-red-500 border border-red-900/50 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Quiz] กิจกรรม: The Energy Boss Fight</span>
+                                <p>• <b class="text-white">Individual Test:</b> นักเรียนทำแบบทดสอบเก็บคะแนนรายบุคคลผ่าน Web App (ห้ามปรึกษากันในรอบนี้)</p>
                             </div>
                         </div>
 
                          <!-- Step 5 -->
                          <div class="relative pl-8 border-l-2 border-transparent">
-                            <div class="absolute -left-[17px] top-0 bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</div>
-                            <h4 class="font-bold text-gray-800 font-prompt text-lg">ขั้นประเมินผล (Evaluation) <span class="text-xs bg-gray-200 px-2 py-1 rounded ml-2 text-gray-600">20 นาที</span></h4>
-                            <div class="mt-2 text-gray-600 text-sm space-y-2">
-                                <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Recognition]</span>
-                                <p>• <b>Base & Improvement Score:</b> ระบบจะคำนวณ "คะแนนพัฒนาการ" จากคะแนนฐานเดิม นำมาเฉลี่ยเป็น "คะแนนกลุ่ม"</p>
-                                <p>• <b>Awards:</b> มอบรางวัลให้กลุ่มที่คะแนนพัฒนาการสูงสุด</p>
+                            <div class="absolute -left-[17px] top-0 bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</div>
+                            <h4 class="font-bold text-gray-200 font-prompt text-lg">ขั้นประเมินผล (Evaluation) <span class="text-xs bg-gray-800 px-2 py-1 rounded ml-2 text-gray-400">20 นาที</span></h4>
+                            <div class="mt-2 text-gray-400 text-sm space-y-2">
+                                <span class="inline-block bg-red-900/30 text-red-500 border border-red-900/50 text-xs px-2 py-1 rounded font-bold mb-1">[STAD Phase: Recognition]</span>
+                                <p>• <b class="text-white">Base & Improvement Score:</b> ระบบจะคำนวณ "คะแนนพัฒนาการ" จากคะแนนฐานเดิม นำมาเฉลี่ยเป็น "คะแนนกลุ่ม"</p>
+                                <p>• <b class="text-white">Awards:</b> มอบรางวัลให้กลุ่มที่คะแนนพัฒนาการสูงสุด</p>
                             </div>
                         </div>
 
@@ -248,9 +256,9 @@
         </div>
 
         <!-- Section 1: Post Lesson Reflection -->
-        <section class="mt-8 bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 break-inside-avoid">
-            <h3 class="font-bold text-xl text-gray-800 mb-4 font-prompt flex items-center">
-                <i class="fa-solid fa-clipboard-check text-green-600 mr-2"></i> บันทึกหลังการจัดการเรียนรู้ (สำหรับครูผู้สอน)
+        <section class="mt-8 bg-[#141414] p-6 rounded-xl shadow-lg border-t-4 border-red-700 break-inside-avoid">
+            <h3 class="font-bold text-xl text-white mb-4 font-prompt flex items-center">
+                <i class="fa-solid fa-clipboard-check text-red-600 mr-2"></i> บันทึกหลังการจัดการเรียนรู้ (สำหรับครูผู้สอน)
             </h3>
             
             <form id="reflectionForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -260,25 +268,25 @@
                 <input type="hidden" name="date" id="currentDate">
 
                 <div class="space-y-2">
-                    <label class="block text-sm font-bold text-gray-700">1. ผลสัมฤทธิ์ทางการเรียน (จำนวน ผ่าน/ไม่ผ่าน)</label>
-                    <textarea name="result" id="result" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none h-32 resize-none" placeholder="เช่น นักเรียนสามารถคำนวณหางานและกำลังได้ผ่านเกณฑ์ 35 คน ไม่ผ่าน 3 คน..."></textarea>
+                    <label class="block text-sm font-bold text-gray-300">1. ผลสัมฤทธิ์ทางการเรียน (จำนวน ผ่าน/ไม่ผ่าน)</label>
+                    <textarea name="result" id="result" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none h-32 resize-none placeholder-gray-600" placeholder="เช่น นักเรียนสามารถคำนวณหางานและกำลังได้ผ่านเกณฑ์ 35 คน ไม่ผ่าน 3 คน..."></textarea>
                 </div>
 
                 <div class="space-y-2">
-                    <label class="block text-sm font-bold text-gray-700">2. ปัญหาและอุปสรรค</label>
-                    <textarea name="problems" id="problems" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none h-32 resize-none" placeholder="เช่น นักเรียนบางกลุ่มยังสับสนเรื่องทิศทางของแรงและการกระจัด..."></textarea>
+                    <label class="block text-sm font-bold text-gray-300">2. ปัญหาและอุปสรรค</label>
+                    <textarea name="problems" id="problems" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none h-32 resize-none placeholder-gray-600" placeholder="เช่น นักเรียนบางกลุ่มยังสับสนเรื่องทิศทางของแรงและการกระจัด..."></textarea>
                 </div>
 
                 <div class="space-y-2">
-                    <label class="block text-sm font-bold text-gray-700">3. ข้อเสนอแนะ / แนวทางแก้ไข</label>
-                    <textarea name="suggestions" id="suggestions" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none h-32 resize-none" placeholder="เช่น เพิ่มโจทย์ตัวอย่างบนกระดานก่อนให้ทำแบบทดสอบเดี่ยว..."></textarea>
+                    <label class="block text-sm font-bold text-gray-300">3. ข้อเสนอแนะ / แนวทางแก้ไข</label>
+                    <textarea name="suggestions" id="suggestions" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none h-32 resize-none placeholder-gray-600" placeholder="เช่น เพิ่มโจทย์ตัวอย่างบนกระดานก่อนให้ทำแบบทดสอบเดี่ยว..."></textarea>
                 </div>
 
                 <div class="space-y-2 flex flex-col justify-end">
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm text-gray-500 mb-2">
-                        <i class="fa-solid fa-info-circle mr-1 text-blue-500"></i> ข้อมูลจะถูกบันทึกไปยัง Google Sheets ในหน้า "บันทึกหลังสอน" อย่างอัตโนมัติ
+                    <div class="bg-[#1e1e1e] p-4 rounded-lg border border-gray-800 text-sm text-gray-400 mb-2">
+                        <i class="fa-solid fa-info-circle mr-1 text-red-500"></i> ข้อมูลจะถูกบันทึกไปยัง Google Sheets ในหน้า "บันทึกหลังสอน" อย่างอัตโนมัติ
                     </div>
-                    <button type="button" onclick="submitToSheet()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg shadow transition transform active:scale-95 flex items-center justify-center gap-2">
+                    <button type="button" onclick="submitToSheet()" class="w-full bg-red-700 hover:bg-red-600 text-white font-bold py-3 rounded-lg shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i> บันทึกข้อมูลเข้าระบบ
                     </button>
                 </div>
@@ -286,58 +294,58 @@
         </section>
 
         <!-- Section 2: Supervision Log -->
-        <section class="mt-8 bg-white p-6 rounded-xl shadow-lg border-t-4 border-purple-500 break-inside-avoid mb-6">
-            <h3 class="font-bold text-xl text-gray-800 mb-4 font-prompt flex items-center">
-                <i class="fa-solid fa-user-check text-purple-600 mr-2"></i> บันทึกและข้อเสนอแนะจากผู้นิเทศ (Supervision Log)
+        <section class="mt-8 bg-[#141414] p-6 rounded-xl shadow-lg border-t-4 border-gray-600 break-inside-avoid mb-6">
+            <h3 class="font-bold text-xl text-white mb-4 font-prompt flex items-center">
+                <i class="fa-solid fa-user-ninja text-gray-400 mr-2"></i> บันทึกและข้อเสนอแนะจากผู้นิเทศ (Supervision Log)
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Form Input Area -->
-                <div class="md:col-span-2 space-y-4 bg-gray-50 p-5 rounded-lg border border-gray-100">
+                <div class="md:col-span-2 space-y-4 bg-[#1e1e1e] p-5 rounded-lg border border-gray-800">
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">ชื่อ-นามสกุล ผู้นิเทศ <span class="text-red-500">*</span></label>
-                        <input type="text" id="supervisorName" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="ระบุชื่อ-นามสกุล">
+                        <label class="block text-sm font-bold text-gray-300 mb-1">ชื่อ-นามสกุล ผู้นิเทศ <span class="text-red-500">*</span></label>
+                        <input type="text" id="supervisorName" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none placeholder-gray-600" placeholder="ระบุชื่อ-นามสกุล">
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">ตำแหน่ง</label>
-                            <input type="text" id="supervisorPosition" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="เช่น ผู้อำนวยการ / หัวหน้ากลุ่มสาระฯ">
+                            <label class="block text-sm font-bold text-gray-300 mb-1">ตำแหน่ง</label>
+                            <input type="text" id="supervisorPosition" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none placeholder-gray-600" placeholder="เช่น ผู้อำนวยการ / หัวหน้ากลุ่มสาระฯ">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">วิทยฐานะ</label>
-                            <input type="text" id="supervisorLevel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="เช่น ชำนาญการพิเศษ / เชี่ยวชาญ">
+                            <label class="block text-sm font-bold text-gray-300 mb-1">วิทยฐานะ</label>
+                            <input type="text" id="supervisorLevel" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none placeholder-gray-600" placeholder="เช่น ชำนาญการพิเศษ / เชี่ยวชาญ">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-1">ข้อคิดเห็น / ข้อเสนอแนะเพิ่มเติม <span class="text-red-500">*</span></label>
-                        <textarea id="supervisorComment" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none h-24 resize-none" placeholder="ระบุข้อเสนอแนะสำหรับการปรับปรุงแผนการสอน..."></textarea>
+                        <label class="block text-sm font-bold text-gray-300 mb-1">ข้อคิดเห็น / ข้อเสนอแนะเพิ่มเติม <span class="text-red-500">*</span></label>
+                        <textarea id="supervisorComment" class="w-full p-3 bg-black border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none h-24 resize-none placeholder-gray-600" placeholder="ระบุข้อเสนอแนะสำหรับการปรับปรุงแผนการสอน..."></textarea>
                     </div>
                     
                     <div class="flex justify-between items-center mt-4">
-                        <p class="text-xs text-gray-400 italic"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> เชื่อมต่อ Google Sheets เรียบร้อยแล้ว</p>
-                        <button type="button" onclick="submitSupervision()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg shadow transition flex items-center gap-2 transform active:scale-95">
+                        <p class="text-xs text-gray-500 italic"><i class="fa-solid fa-network-wired mr-1"></i> ระบบเชื่อมต่อฐานข้อมูลพร้อมใช้งาน</p>
+                        <button type="button" onclick="submitSupervision()" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg shadow transition flex items-center gap-2 transform active:scale-95">
                             <i class="fa-solid fa-save"></i> บันทึกผลการนิเทศ
                         </button>
                     </div>
                 </div>
 
                 <!-- Summary & Fetch Area -->
-                <div class="md:col-span-1 bg-purple-50 p-4 rounded-lg border border-purple-200 flex flex-col h-full shadow-inner">
-                    <div class="flex justify-between items-center mb-3 border-b border-purple-200 pb-2">
-                        <h4 class="font-bold text-purple-800 font-prompt">ผลการนิเทศทั้งหมด</h4>
-                        <span class="bg-purple-200 text-purple-800 text-[10px] px-2 py-1 rounded-full font-bold">Real-time</span>
+                <div class="md:col-span-1 bg-black p-4 rounded-lg border border-gray-800 flex flex-col h-full shadow-inner">
+                    <div class="flex justify-between items-center mb-3 border-b border-gray-800 pb-2">
+                        <h4 class="font-bold text-gray-300 font-prompt">ผลการนิเทศทั้งหมด</h4>
+                        <span class="bg-gray-800 text-gray-400 border border-gray-700 text-[10px] px-2 py-1 rounded-full font-bold">Real-time</span>
                     </div>
                     
-                    <div id="supervisionSummaryArea" class="flex-1 overflow-y-auto max-h-[300px] text-sm text-gray-600 space-y-3 mb-4 custom-scrollbar pr-1">
+                    <div id="supervisionSummaryArea" class="flex-1 overflow-y-auto max-h-[300px] text-sm text-gray-400 space-y-3 mb-4 custom-scrollbar pr-1">
                         <!-- บริเวณนี้จะถูกแทนที่ด้วยข้อมูลจาก Google Sheet -->
                         <div class="flex justify-center items-center h-full">
-                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-700"></div>
+                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-red-700"></div>
                         </div>
                     </div>
                     
-                    <button type="button" onclick="fetchSupervisionSummary(true)" class="w-full bg-white text-purple-700 border border-purple-300 hover:bg-purple-100 font-bold py-2 rounded-lg transition text-sm flex items-center justify-center gap-2 shadow-sm">
+                    <button type="button" onclick="fetchSupervisionSummary(true)" class="w-full bg-[#1e1e1e] text-gray-300 border border-gray-700 hover:bg-gray-800 font-bold py-2 rounded-lg transition text-sm flex items-center justify-center gap-2 shadow-sm">
                         <i class="fa-solid fa-sync"></i> อัปเดตข้อมูลล่าสุด
                     </button>
                 </div>
@@ -387,7 +395,6 @@
                 document.getElementById('suggestions').value = '';
             })
             .catch(err => {
-                // ระงับการใช้ console.error เพื่อไม่ให้แสดง log เป็น error สีแดงใน console ทั่วไป
                 Swal.fire('แจ้งเตือนเครือข่าย', 'ส่งข้อมูลไปเบื้องหลังแล้ว แต่ไม่สามารถยืนยันการตอบกลับได้ (ปัญหา CORS)', 'info');
             });
         }
@@ -436,7 +443,6 @@
                 setTimeout(() => fetchSupervisionSummary(false), 1500);
             })
             .catch(err => {
-                // ระงับการใช้ console.error เพื่อป้องกัน log บันทึกผิดพลาด
                 Swal.fire('แจ้งเตือนเครือข่าย', 'ส่งข้อมูลแล้ว แต่อาจแสดงผลล่าช้าเนื่องจากการตอบกลับถูกบล็อก', 'info');
             });
         }
@@ -464,12 +470,12 @@
                                 let detailText = [positionText, levelText].filter(Boolean).join(' | ');
 
                                 area.innerHTML += `
-                                    <div class="bg-white p-3 rounded-lg border border-purple-100 shadow-sm hover:shadow transition-shadow mb-3">
-                                        <p class="font-bold text-purple-900 text-sm"><i class="fa-solid fa-user-tie text-purple-500 mr-1.5"></i> ${item.supervisor}</p>
-                                        ${detailText ? `<div class="mt-1 mb-2"><span class="text-[10px] text-purple-700 bg-purple-100 px-2 py-0.5 rounded-md border border-purple-200">${detailText}</span></div>` : ''}
-                                        <p class="text-gray-700 text-sm italic border-l-2 border-purple-300 pl-2 mt-2 leading-relaxed">"${item.comment}"</p>
-                                        <div class="text-right mt-2 border-t border-gray-50 pt-1">
-                                            <span class="text-gray-400 text-[10px]"><i class="fa-regular fa-calendar mr-1"></i>${dateStr}</span>
+                                    <div class="bg-[#141414] p-3 rounded-lg border border-gray-800 shadow-sm hover:border-gray-700 transition-colors mb-3">
+                                        <p class="font-bold text-gray-200 text-sm"><i class="fa-solid fa-user-ninja text-gray-500 mr-1.5"></i> ${item.supervisor}</p>
+                                        ${detailText ? `<div class="mt-1 mb-2"><span class="text-[10px] text-gray-400 bg-black px-2 py-0.5 rounded-md border border-gray-800">${detailText}</span></div>` : ''}
+                                        <p class="text-gray-400 text-sm italic border-l-2 border-red-700 pl-2 mt-2 leading-relaxed">"${item.comment}"</p>
+                                        <div class="text-right mt-2 border-t border-gray-800 pt-1">
+                                            <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-calendar mr-1"></i>${dateStr}</span>
                                         </div>
                                     </div>
                                 `;
@@ -477,14 +483,12 @@
                         } else {
                             area.innerHTML = `
                             <div class="flex flex-col items-center justify-center h-full text-center py-6">
-                                <i class="fa-regular fa-folder-open text-3xl text-gray-300 mb-2"></i>
-                                <p class="text-gray-400 text-sm">ยังไม่มีข้อมูลการนิเทศในระบบ</p>
+                                <i class="fa-regular fa-folder-open text-3xl text-gray-700 mb-2"></i>
+                                <p class="text-gray-500 text-sm">ยังไม่มีข้อมูลการนิเทศในระบบ</p>
                             </div>`;
                         }
                     })
                     .catch(err => {
-                        // ปิด console.error เดิม เพื่อไม่ให้พ่น Error สีแดงออกไป
-                        
                         // แสดงข้อความและข้อมูลจำลอง (Mock Data) หากเกิดปัญหา CORS หรือ Web App ถูกจำกัดสิทธิ์
                         const mockData = [
                             { supervisor: "นายตัวอย่าง ใจดี", position: "ผู้อำนวยการ", level: "เชี่ยวชาญ", comment: "แผนการสอนมีความน่าสนใจ มีการใช้เทคโนโลยีได้ดีมาก", date: new Date().toLocaleDateString('th-TH') },
@@ -492,21 +496,21 @@
                         ];
 
                         area.innerHTML = `
-                            <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200 text-center mb-3">
-                                <i class="fa-solid fa-triangle-exclamation text-yellow-500 text-xl mb-1"></i>
-                                <p class="text-yellow-700 text-xs">ระบบดึงข้อมูลจาก Sheet ถูกบล็อก (CORS) หรือยังไม่ได้ตั้งสิทธิ์ 'Anyone'<br><br>กำลังแสดงผล <b>ข้อมูลจำลอง</b></p>
+                            <div class="bg-red-900/20 p-3 rounded-lg border border-red-800/50 text-center mb-3">
+                                <i class="fa-solid fa-triangle-exclamation text-red-500 text-xl mb-1"></i>
+                                <p class="text-red-400 text-xs">ระบบดึงข้อมูลจาก Sheet ถูกบล็อก (CORS) หรือยังไม่ได้ตั้งสิทธิ์ 'Anyone'<br><br>กำลังแสดงผล <span class="text-white font-bold">ข้อมูลจำลอง</span></p>
                             </div>
                         `;
 
                         mockData.forEach(item => {
                             let detailText = [item.position, item.level].filter(Boolean).join(' | ');
                             area.innerHTML += `
-                                <div class="bg-white p-3 rounded-lg border border-gray-200 shadow-sm opacity-80 mb-3">
-                                    <p class="font-bold text-gray-700 text-sm"><i class="fa-solid fa-user-tie text-gray-400 mr-1.5"></i> ${item.supervisor}</p>
-                                    ${detailText ? `<div class="mt-1 mb-2"><span class="text-[10px] text-gray-600 bg-gray-100 px-2 py-0.5 rounded-md border border-gray-200">${detailText}</span></div>` : ''}
-                                    <p class="text-gray-600 text-sm italic border-l-2 border-gray-300 pl-2 mt-2 leading-relaxed">"${item.comment}"</p>
-                                    <div class="text-right mt-2 border-t border-gray-50 pt-1">
-                                        <span class="text-gray-400 text-[10px]"><i class="fa-regular fa-calendar mr-1"></i>${item.date}</span>
+                                <div class="bg-[#141414] p-3 rounded-lg border border-gray-800 shadow-sm opacity-80 mb-3">
+                                    <p class="font-bold text-gray-300 text-sm"><i class="fa-solid fa-user-ninja text-gray-500 mr-1.5"></i> ${item.supervisor}</p>
+                                    ${detailText ? `<div class="mt-1 mb-2"><span class="text-[10px] text-gray-500 bg-black px-2 py-0.5 rounded-md border border-gray-800">${detailText}</span></div>` : ''}
+                                    <p class="text-gray-400 text-sm italic border-l-2 border-red-900 pl-2 mt-2 leading-relaxed">"${item.comment}"</p>
+                                    <div class="text-right mt-2 border-t border-gray-800 pt-1">
+                                        <span class="text-gray-500 text-[10px]"><i class="fa-regular fa-calendar mr-1"></i>${item.date}</span>
                                     </div>
                                 </div>
                             `;
